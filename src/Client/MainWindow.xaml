@@ -5,8 +5,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UNotions"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBlock Text="There should be interface here." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"></TextBlock>
+        Title="MainWindow"  FontFamily="OCR A Extended" ResizeMode="CanResizeWithGrip" Height="500" Width="800" WindowStyle="None" MinHeight="550" MinWidth="850" WindowStartupLocation="CenterScreen" >
+    <Grid Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="headerGrid" Background="WhiteSmoke" Grid.Row="0" MouseDown="Window_DragDrop">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="35"/>
+            </Grid.ColumnDefinitions>
+            <Image Margin="10,0,0,4" Grid.Column="0" Source="/Images/icon.png"></Image>
+            <Label Grid.Column="1" FontFamily="OCR A Extended" FontSize="14" VerticalAlignment="Center" Foreground="Black" Content="UNotions"></Label>
+            <Button Grid.Column="4" x:Name="btnClose" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click">
+            </Button>
+            <Button Grid.Column="3" x:Name="btnRestore" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource restore}"  Margin="5,0"  Cursor="Hand" Click="btnRestore_Click">
+            </Button>
+            <Button Grid.Column="2" x:Name="btnMinimize"  Style="{DynamicResource IconButtonsStyle}"  Content="{DynamicResource minimize}"   Cursor="Hand" Click="btnMinimize_Click" HorizontalAlignment="Left" Margin="5,2,0,2" Width="25"/>
+        </Grid>
+        <Border Height="1" Margin="0,29,0,0" Background="LightGray"></Border>
+        <Grid Grid.Row="1" x:Name="mainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="165"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Background="WhiteSmoke" x:Name="menuGrid" Grid.Column="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Border x:Name="notesPageButton" MouseLeftButtonDown="notesPage_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="0" CornerRadius="0 18 18 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="39" Height="30" Source="Images/notes.png"></Image>
+                            <Label VerticalAlignment="Center" FontSize="18" Content="Notes"></Label>
+                        </StackPanel>
+                    </Border>
+                    <Border x:Name="remindersPageButton" MouseLeftButtonDown="remindersPage_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="1" CornerRadius="0 18 18 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="39" Height="30" Source="Images/reminders.png"></Image>
+                            <Label VerticalAlignment="Center" FontSize="18" Content="Reminders"></Label>
+                        </StackPanel>
+                    </Border>
+                    <Border x:Name="archivePageButton" MouseLeftButtonDown="archivePage_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="2" CornerRadius="0 18 18 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="39" Height="30" Source="Images/archive.png"></Image>
+                            <Label VerticalAlignment="Center" FontSize="18" Content="Archive"></Label>
+                        </StackPanel>
+                    </Border>
+                    <Border x:Name="trashPageButton" MouseLeftButtonDown="trashPage_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="3" CornerRadius="0 18 18 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="39" Height="30" Source="Images/trash.png"></Image>
+                            <Label VerticalAlignment="Center" FontSize="18" Content="Trash"></Label>
+                        </StackPanel>
+                    </Border>
+                    <Border x:Name="settingsPageButton" MouseLeftButtonDown="settingsPage_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="4" CornerRadius="0 18 18 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="39" Height="30" Source="Images/settings.png"></Image>
+                            <Label VerticalAlignment="Center" FontSize="18" Content="Settings"></Label>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Frame Opacity="1" NavigationUIVisibility="Hidden" Background="WhiteSmoke" x:Name="framePage" Grid.Row="1"></Frame>
+            </Grid>
+          
+        </Grid>
+     
     </Grid>
 </Window>

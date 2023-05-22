@@ -8,6 +8,48 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\add.png" />
+    <None Remove="Images\archive.png" />
+    <None Remove="Images\edit.png" />
+    <None Remove="Images\icon.png" />
+    <None Remove="Images\notes.png" />
+    <None Remove="Images\reminders.png" />
+    <None Remove="Images\search.png" />
+    <None Remove="Images\settings.png" />
+    <None Remove="Images\trash.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\archive.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\edit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\notes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\reminders.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\search.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\trash.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Lib\UNotions_Lib.csproj" />
   </ItemGroup>
 

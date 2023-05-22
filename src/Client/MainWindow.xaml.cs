@@ -15,6 +15,7 @@ namespace UNotions
         public MainWindow()
         {
             InitializeComponent();
+            framePage.Content = new NotesPage();
         }
 
         #region Window buttons

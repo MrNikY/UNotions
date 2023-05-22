@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UNotions", "Client\UNotions.csproj", "{21D7B716-A891-4CD8-8863-E727740FFA1E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UNotions_Lib", "Lib\UNotions_Lib.csproj", "{3F225C95-1603-4BCB-9EE6-19E3677CA1D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UNotions_Server", "Server\UNotions_Server.csproj", "{EACB41A1-AA68-479D-9C0C-F76BF8E458F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21D7B716-A891-4CD8-8863-E727740FFA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21D7B716-A891-4CD8-8863-E727740FFA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21D7B716-A891-4CD8-8863-E727740FFA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21D7B716-A891-4CD8-8863-E727740FFA1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F225C95-1603-4BCB-9EE6-19E3677CA1D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F225C95-1603-4BCB-9EE6-19E3677CA1D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F225C95-1603-4BCB-9EE6-19E3677CA1D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F225C95-1603-4BCB-9EE6-19E3677CA1D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EACB41A1-AA68-479D-9C0C-F76BF8E458F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EACB41A1-AA68-479D-9C0C-F76BF8E458F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EACB41A1-AA68-479D-9C0C-F76BF8E458F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EACB41A1-AA68-479D-9C0C-F76BF8E458F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B49CA8D-F880-4221-B2C8-F8D49F21A65D}
+	EndGlobalSection
+EndGlobal

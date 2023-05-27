@@ -47,6 +47,15 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="borderTriggerStyle" TargetType="Border">
+        <Setter Property="Opacity" Value="0.8"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Opacity" Value="1"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
     <Style TargetType="TextBox">
         <Setter Property="Template">
             <Setter.Value>
@@ -137,4 +146,7 @@
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Background" Value="WhiteSmoke"/>
     </Style>
+
+    
+
 </ResourceDictionary>

@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Border MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" Background="WhiteSmoke"  MaxWidth="600" CornerRadius="10" BorderThickness="2" BorderBrush="LightGray">
+        <Border MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" Background="WhiteSmoke" MaxWidth="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ListBox},Path=ActualWidth}">
             <StackPanel Margin="5" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="Title" FontSize="18" Content="{Binding Title}"></Label>

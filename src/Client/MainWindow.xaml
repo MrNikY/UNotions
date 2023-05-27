@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UNotions"
         mc:Ignorable="d"
-        Title="MainWindow"  FontFamily="OCR A Extended" ResizeMode="CanResizeWithGrip" Height="500" Width="800" WindowStyle="None" MinHeight="550" MinWidth="850" WindowStartupLocation="CenterScreen" >
+        Title="MainWindow" FontFamily="Consolas" ResizeMode="CanResizeWithGrip" Height="600" Width="900" WindowStyle="None" MinHeight="550" MinWidth="850" WindowStartupLocation="CenterScreen" >
     <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -30,10 +30,15 @@
         <Border Height="1" Margin="0,29,0,0" Background="LightGray"></Border>
         <Grid Grid.Row="1" x:Name="mainGrid">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="165"></ColumnDefinition>
+                <ColumnDefinition Width="168"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid Background="WhiteSmoke" x:Name="menuGrid" Grid.Column="0">
+            <Grid  Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="100"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid  Background="WhiteSmoke" x:Name="menuGrid">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
@@ -74,8 +79,61 @@
                     </Border>
                 </Grid>
             </Grid>
-            <Grid Grid.Column="1">
-                <Frame Opacity="1" NavigationUIVisibility="Hidden" Background="WhiteSmoke" x:Name="framePage" Grid.Row="1"></Frame>
+                <Grid x:Name="saveAndLoadGrid" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Border  MouseLeftButtonDown="saveNotes_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="0" CornerRadius="0 18 18 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="39" Height="30" Source="Images/save.png"></Image>
+                            <Label VerticalAlignment="Center" FontSize="18" Content="Save notes"></Label>
+                        </StackPanel>
+                    </Border>
+                    <Border  MouseLeftButtonDown="loadNotes_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="1" CornerRadius="0 18 18 0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="39" Height="30" Source="Images/load.png"></Image>
+                            <Label VerticalAlignment="Center" FontSize="18" Content="Load notes" Width="167"></Label>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Grid>
+            <Grid x:Name="frameGrid" Grid.Column="1">
+                <Border x:Name="notificationBorderSave" BorderThickness="2" BorderBrush="LightGray" Width="200" Visibility="Collapsed" Height="200" Margin="0 -30 80 0" Background="LightGray" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBox Foreground="Black" TextWrapping="Wrap" Padding="10"   Text="When you click the save button, all your notes are updated on the network, and the next time you download the notes, they will be new. If you want to cancel the action, click on the Cancel button"></TextBox>
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
+                            <Border Background="CornflowerBlue" HorizontalAlignment="Left" Margin="5" MouseLeftButtonDown="notificationSave_Click"  Grid.Row="1" Width="75" Height="35" CornerRadius="10"  Style="{StaticResource borderTriggerStyle}">
+                                <Label Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                            </Border>
+                            <Border Background="OrangeRed" Margin="5" HorizontalAlignment="Right" MouseLeftButtonDown="notificationCancel_Click"  Grid.Row="1" Width="75" Height="35" CornerRadius="10" Style="{StaticResource borderTriggerStyle}">
+                                <Label Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border x:Name="notificationBorderLoad" BorderThickness="2" BorderBrush="LightGray" Width="200" Visibility="Collapsed" Height="200" Margin="0 -30 80 0" Background="LightGray" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBox Foreground="Black" TextWrapping="Wrap" Padding="10"   Text="nd the next time you download the notes, they will be new. If you want to cancel the action, click on the Cancel button"></TextBox>
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
+                            <Border Background="CornflowerBlue" HorizontalAlignment="Left" Margin="5" MouseLeftButtonDown="notificationSave_Click"  Grid.Row="1" Width="75" Height="35" CornerRadius="10"  Style="{StaticResource borderTriggerStyle}">
+                                <Label Content="Load" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                            </Border>
+                            <Border Background="OrangeRed" Margin="5" HorizontalAlignment="Right" MouseLeftButtonDown="notificationCancel_Click"  Grid.Row="1" Width="75" Height="35" CornerRadius="10" Style="{StaticResource borderTriggerStyle}">
+                                <Label Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Frame BorderBrush="LightGray" BorderThickness="1" NavigationUIVisibility="Hidden" Background="WhiteSmoke" x:Name="framePage" Grid.Row="1"></Frame>
             </Grid>
           
         </Grid>

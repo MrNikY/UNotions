@@ -27,8 +27,6 @@ namespace UNotions.Styles
             InitializeComponent();
             Title.Content = model.Title;
             Text.Text = model.Text;
-            PriorityLabel.Content = model.Priority;
-            PriorityLabel.Foreground = model.PriorityColor;
             EndNoteDate.Content = model.EndNoteDate;
             CreatedNoteDate.Content = model.CreatedNoteDate;
         }

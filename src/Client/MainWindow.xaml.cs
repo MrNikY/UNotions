@@ -7,9 +7,6 @@ using UNotions.Pages;
 
 namespace UNotions
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -79,10 +76,8 @@ namespace UNotions
         {
             await Task.Factory.StartNew(() =>
             {
-                double opacity = 0;
                 for (double i = 1.0; i > 0.0; i -= 0.1)
                 {
-                    opacity = i;
                     Thread.Sleep(15);
                     Dispatcher.Invoke(() =>
                     {
@@ -96,7 +91,6 @@ namespace UNotions
                 });
                 for (double i = 0.0; i < 1.1; i += 0.1)
                 {
-                    opacity = i;
                     Thread.Sleep(15);
                     Dispatcher.Invoke(() =>
                     {
@@ -106,5 +100,47 @@ namespace UNotions
             });
         }
         #endregion
+
+        #region Synhronize
+        private async void loadNotes_Click(object sender, MouseButtonEventArgs e)
+        {
+            framePage.Visibility = Visibility.Collapsed;
+            menuGrid.Opacity = 0.5;
+            menuGrid.IsEnabled = false;
+            saveAndLoadGrid.IsEnabled = false;
+            notificationBorderLoad.Visibility = Visibility.Visible;
+            notificationBorderSave.Visibility = Visibility.Collapsed;
+            saveAndLoadGrid.Opacity = 0.5;
+        }
+        private async void saveNotes_Click(object sender, MouseButtonEventArgs e)
+        {
+            framePage.Visibility = Visibility.Collapsed;
+            menuGrid.Opacity = 0.5;
+            menuGrid.IsEnabled = false;
+            saveAndLoadGrid.IsEnabled = false;
+            notificationBorderLoad.Visibility = Visibility.Collapsed;
+            notificationBorderSave.Visibility = Visibility.Visible;
+            saveAndLoadGrid.Opacity = 0.5;
+        }
+        private void notificationLoad_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void notificationSave_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void notificationCancel_Click(object sender, MouseButtonEventArgs e)
+        {
+            framePage.Visibility = Visibility.Visible;
+            menuGrid.Opacity =1;
+            menuGrid.IsEnabled = true;
+            notificationBorderLoad.Visibility = Visibility.Collapsed;
+            notificationBorderSave.Visibility = Visibility.Collapsed;
+            saveAndLoadGrid.Opacity = 1;
+            saveAndLoadGrid.IsEnabled = true;
+        }
+        #endregion
+
     }
 }

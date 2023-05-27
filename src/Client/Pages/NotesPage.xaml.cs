@@ -17,9 +17,6 @@ using UNotions.Styles;
 
 namespace UNotions.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для NotesPage.xaml
-    /// </summary>
     public partial class NotesPage : Page
     {
         public NotesPage()
@@ -27,9 +24,9 @@ namespace UNotions.Pages
             InitializeComponent();
 
             //если ещё нету записок то показать addNotes по середине а если есть то его в ряд
-            notesListBox.Items.Add(new NotesControl( new NotesModel("Go to sleep", "I go to sleep and you this band gang tios tie wins lose", Priority.Medium, DateTime.Now.AddDays(10))));
-            notesListBox.Items.Add(new NotesControl(new NotesModel("Go to sleep", "I go to sleep and you this band gang tios tie wins rqw I go to sleep and you this band gang tios tie wins rqw  I go to sleep and you this band gang tios tie wins rqw   qwr", Priority.Low, DateTime.Now.AddDays(5))));
-            notesListBox.Items.Add(new NotesControl(new NotesModel("Go to sleep", "I go to sleep and you this band gang tios tie wins adsdasadsdasqwrrwqrqwqwrrqwrqwrqwrwqdassad  asd ads dasdas d asdas ", Priority.High, DateTime.Now.AddDays(2))));
+            notesListBox.Items.Add(new NotesControl( new NotesModel("Go to sleep", "I go to sleep and you this band gang tios tie wins lose", DateTime.Now.AddDays(10))));
+            notesListBox.Items.Add(new NotesControl(new NotesModel("Go to sleep", "I go to sleep and you this band gang tios tie wins rqw I go to sleep and you this band gang tios tie wins rqw  I go to sleep and you this band gang tios tie wins rqw   qwr", DateTime.Now.AddDays(5))));
+            notesListBox.Items.Add(new NotesControl(new NotesModel("Go to sleep", "I go to sleep and you this band gang tios tie wins adsdasadsdasqwrrwqrqwqwrrqwrqwrqwrwqdassad  asd ads dasdas d asdas ", DateTime.Now.AddDays(2))));
         }
 
         #region Search

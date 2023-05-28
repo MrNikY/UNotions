@@ -13,7 +13,23 @@ namespace UNotions
         {
             InitializeComponent();
             framePage.Content = new NotesPage();
+            //framePage.Visibility = Visibility.Collapsed;
+            //menuGrid.Opacity = 0.5;
+            //menuGrid.IsEnabled = false;
+            //saveAndLoadGrid.IsEnabled = false;
+            //saveAndLoadGrid.Opacity = 0.5;
         }
+        #region Auth
+        private void RegisterAccount_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void LoginAccount_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        #endregion
+
 
         #region Window buttons
         private void btnMinimize_Click(object sender, RoutedEventArgs e)

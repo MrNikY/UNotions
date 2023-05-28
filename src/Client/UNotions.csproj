@@ -10,15 +10,23 @@
   <ItemGroup>
     <None Remove="Images\add.png" />
     <None Remove="Images\archive.png" />
+    <None Remove="Images\cancel.png" />
     <None Remove="Images\edit.png" />
     <None Remove="Images\icon.png" />
     <None Remove="Images\load.png" />
     <None Remove="Images\notes.png" />
+    <None Remove="Images\pen.png" />
     <None Remove="Images\reminders.png" />
     <None Remove="Images\save.png" />
     <None Remove="Images\search.png" />
     <None Remove="Images\settings.png" />
     <None Remove="Images\trash.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\cancel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +46,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\notes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\pen.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\reminders.png">

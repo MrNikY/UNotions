@@ -34,18 +34,26 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBox TextWrapping="Wrap" Margin="10,0,0,0" Foreground="Black" FontSize="18" Style="{StaticResource styleNotRounded}" Tag="Enter title" FontFamily="Consolas"></TextBox>
-                    <TextBox TextWrapping="Wrap" Grid.Row="1" Margin="10,0,0,0" Foreground="Black" FontSize="18" Style="{StaticResource styleNotRounded}" Tag="Notes..."></TextBox>
-                    <StackPanel HorizontalAlignment="Right" Margin="0,0,20,10" Grid.Row="2" Orientation="Horizontal">
-                        <Border MouseLeftButtonDown="sendToArchive_Click" Style="{StaticResource borderMenuStyle}" CornerRadius="10" Width="35" Height="35">
-                            <Image Source="/Images/archive.png"></Image>
-                        </Border>
-                        <Border MouseLeftButtonDown="clear_Click" Style="{StaticResource borderMenuStyle}" CornerRadius="10" Width="35" Height="35">
-                            <Image Source="/Images/trash.png"></Image>
-                        </Border>
-                        <Border MouseLeftButtonDown="sendToNotes_Click" Style="{StaticResource borderMenuStyle}" CornerRadius="10" Width="35" Height="35">
-                            <Image Source="/Images/add.png"></Image>
-                        </Border>
-                    </StackPanel>
+                    <TextBox TextWrapping="Wrap" Grid.Row="1" Margin="10,0,0,0" Foreground="Black" FontSize="18" Style="{StaticResource styleNotRounded}" FontFamily="Consolas" Tag="Notes..."></TextBox>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="140"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox TextWrapping="Wrap"  Margin="10,0,0,0" Foreground="Black" FontSize="18" Style="{StaticResource styleNotRounded}" Tag="Enter tags per ," FontFamily="Consolas"></TextBox>
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,20,10" Grid.Row="2" Orientation="Horizontal">
+
+                            <Border MouseLeftButtonDown="sendToArchive_Click" Style="{StaticResource borderMenuStyle}" CornerRadius="10" Width="35" Height="35">
+                                <Image Source="/Images/archive.png"></Image>
+                            </Border>
+                            <Border MouseLeftButtonDown="clear_Click" Style="{StaticResource borderMenuStyle}" CornerRadius="10" Width="35" Height="35">
+                                <Image Source="/Images/trash.png"></Image>
+                            </Border>
+                            <Border MouseLeftButtonDown="sendToNotes_Click" Style="{StaticResource borderMenuStyle}" CornerRadius="10" Width="35" Height="35">
+                                <Image Source="/Images/add.png"></Image>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
                 </Grid>
             </Border>
             <ListBox Margin="40,0,0,0" HorizontalContentAlignment="Stretch" VirtualizingPanel.ScrollUnit="Pixel" BorderBrush="Transparent" Style="{StaticResource notesListBox}" Background="WhiteSmoke" Grid.Row="1" x:Name="notesListBox">

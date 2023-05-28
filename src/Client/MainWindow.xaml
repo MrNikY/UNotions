@@ -84,13 +84,13 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Border  MouseLeftButtonDown="saveNotes_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="0" CornerRadius="0 18 18 0">
+                    <Border  MouseLeftButtonDown="loadNotes_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="0" CornerRadius="0 18 18 0">
                         <StackPanel Orientation="Horizontal">
                             <Image Width="39" Height="30" Source="Images/save.png"></Image>
                             <Label VerticalAlignment="Center" FontSize="18" Content="Save notes"></Label>
                         </StackPanel>
                     </Border>
-                    <Border  MouseLeftButtonDown="loadNotes_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="1" CornerRadius="0 18 18 0">
+                    <Border  MouseLeftButtonDown="saveNotes_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="1" CornerRadius="0 18 18 0">
                         <StackPanel Orientation="Horizontal">
                             <Image Width="39" Height="30" Source="Images/load.png"></Image>
                             <Label VerticalAlignment="Center" FontSize="18" Content="Load notes" Width="167"></Label>
@@ -99,41 +99,78 @@
                 </Grid>
             </Grid>
             <Grid x:Name="frameGrid" Grid.Column="1">
-                <Border x:Name="notificationBorderSave" BorderThickness="2" BorderBrush="LightGray" Width="200" Visibility="Collapsed" Height="200" Margin="0 -30 80 0" Background="LightGray" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border x:Name="notificationBorderSave" BorderThickness="2" BorderBrush="LightGray" Width="300" Visibility="Collapsed" Height="200" Margin="0 -30 80 0" Background="LightGray" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
                             <RowDefinition Height="50"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBox Foreground="Black" TextWrapping="Wrap" Padding="10"   Text="When you click the save button, all your notes are updated on the network, and the next time you download the notes, they will be new. If you want to cancel the action, click on the Cancel button"></TextBox>
-                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
-                            <Border Background="CornflowerBlue" HorizontalAlignment="Left" Margin="5" MouseLeftButtonDown="notificationSave_Click"  Grid.Row="1" Width="75" Height="35" CornerRadius="10"  Style="{StaticResource borderTriggerStyle}">
-                                <Label Content="Save" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                        <TextBox IsReadOnly="True" BorderBrush="Transparent" Foreground="Black" TextWrapping="Wrap" Padding="10" FontSize="14"  Text="When you click the save button, all your notes are updated on the network, and the next time you download the notes, they will be new. If you want to cancel the action, click on the Cancel button"></TextBox>
+                        <StackPanel Margin="3" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
+                            <Border Width="145" MouseLeftButtonDown="notificationLoad_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="0" CornerRadius="10 0 0 10">
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                    <Image Width="39" Height="30" Source="Images/load.png"></Image>
+                                    <Label VerticalAlignment="Center" FontSize="18" Content="Load notes"></Label>
+                                </StackPanel>
                             </Border>
-                            <Border Background="OrangeRed" Margin="5" HorizontalAlignment="Right" MouseLeftButtonDown="notificationCancel_Click"  Grid.Row="1" Width="75" Height="35" CornerRadius="10" Style="{StaticResource borderTriggerStyle}">
-                                <Label Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                            <Border  Width="145" MouseLeftButtonDown="notificationCancel_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="0" CornerRadius="0 10 10 0">
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                    <Image Width="39" Height="30" Source="Images/cancel.png"></Image>
+                                    <Label VerticalAlignment="Center" FontSize="18" Content="Cancel"></Label>
+                                </StackPanel>
                             </Border>
                         </StackPanel>
                     </Grid>
                 </Border>
-                <Border x:Name="notificationBorderLoad" BorderThickness="2" BorderBrush="LightGray" Width="200" Visibility="Collapsed" Height="200" Margin="0 -30 80 0" Background="LightGray" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border x:Name="notificationBorderLoad" BorderThickness="2" BorderBrush="LightGray" Width="300" Visibility="Collapsed" Height="200" Margin="0 -30 80 0" Background="LightGray" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
                             <RowDefinition Height="50"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBox Foreground="Black" TextWrapping="Wrap" Padding="10"   Text="nd the next time you download the notes, they will be new. If you want to cancel the action, click on the Cancel button"></TextBox>
-                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
-                            <Border Background="CornflowerBlue" HorizontalAlignment="Left" Margin="5" MouseLeftButtonDown="notificationSave_Click"  Grid.Row="1" Width="75" Height="35" CornerRadius="10"  Style="{StaticResource borderTriggerStyle}">
-                                <Label Content="Load" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                        <TextBox  IsReadOnly="True"  FontSize="14" BorderBrush="Transparent" Foreground="Black" TextWrapping="Wrap" Padding="10"   Text="When recording a Download entry, all your unsaved notes will be lost, and notes that are already online will be loaded. If you want to cancel this mechanism, click Cancel."></TextBox>
+                        <StackPanel Margin="3" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
+                            <Border Width="145" MouseLeftButtonDown="notificationLoad_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="0" CornerRadius="10 0 0 10">
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                    <Image Width="39" Height="30" Source="Images/save.png"></Image>
+                                    <Label VerticalAlignment="Center" FontSize="18" Content="Save notes"></Label>
+                                </StackPanel>
                             </Border>
-                            <Border Background="OrangeRed" Margin="5" HorizontalAlignment="Right" MouseLeftButtonDown="notificationCancel_Click"  Grid.Row="1" Width="75" Height="35" CornerRadius="10" Style="{StaticResource borderTriggerStyle}">
-                                <Label Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                            <Border  Width="145" MouseLeftButtonDown="notificationCancel_Click" Style="{StaticResource borderMenuStyle}" Grid.Row="0" CornerRadius="0 10 10 0">
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                    <Image Width="39" Height="30" Source="Images/cancel.png"></Image>
+                                    <Label VerticalAlignment="Center" FontSize="18" Content="Cancel"></Label>
+                                </StackPanel>
                             </Border>
                         </StackPanel>
                     </Grid>
                 </Border>
-                <Frame BorderBrush="LightGray" BorderThickness="1" NavigationUIVisibility="Hidden" Background="WhiteSmoke" x:Name="framePage" Grid.Row="1"></Frame>
+                <Border x:Name="loginBorder" BorderThickness="2" BorderBrush="LightGray" Width="300" Visibility="Collapsed" Height="400" Margin="0 -30 80 0" Background="#EEEEEE" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="120"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="45"/>
+                            <RowDefinition Height="45"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label x:Name="messageLabel" Opacity="0" Grid.Row="5" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Invalid username or password" Foreground="WhiteSmoke"></Label>
+                        <TextBox x:Name="usernameTextBox"  Grid.Row="1" Margin="10,0,10,0" Tag="Username"></TextBox>
+                        <TextBox x:Name="passwordTextBox"  Grid.Row="2" Margin="10,10,10,0" Tag="Password"></TextBox>
+
+                        <Border MouseLeftButtonDown="LoginAccount_Click" Opacity="0.9" Style="{StaticResource borderMenuStyle}" BorderBrush="CornflowerBlue" CornerRadius="8" BorderThickness="2" Margin="10,10,10,0" Grid.Row="3">
+                            <Label FontSize="14" HorizontalAlignment="Center" Content="Login"></Label>
+                        </Border>
+
+                        <Border MouseLeftButtonDown="RegisterAccount_Click" Opacity="0.9" Style="{StaticResource borderMenuStyle}" BorderBrush="Plum" CornerRadius="8" BorderThickness="2" Margin="10,10,10,0" Grid.Row="4">
+                            <Label FontSize="14" HorizontalAlignment="Center" Content="Register"></Label>
+                        </Border>
+
+                        <Image Grid.Row="0" Source="Images/icon.png"></Image>
+                    </Grid>
+                </Border>
+                <Frame Visibility="Visible" BorderBrush="LightGray" BorderThickness="1" NavigationUIVisibility="Hidden" Background="WhiteSmoke" x:Name="framePage" Grid.Row="1"></Frame>
             </Grid>
           
         </Grid>

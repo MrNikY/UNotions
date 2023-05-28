@@ -29,6 +29,11 @@ namespace UNotions.Styles
             Text.Text = model.Text;
             EndNoteDate.Content = model.EndNoteDate;
             CreatedNoteDate.Content = model.CreatedNoteDate;
+            for(int i = 0; i < model.Tags.Count - 1; i++)
+            {
+                ListTags.Items.Add(model.Tags[i] + " |");
+            }
+            ListTags.Items.Add(model.Tags[model.Tags.Count - 1]);
         }
 
         private void editButton_Click(object sender, MouseButtonEventArgs e)

@@ -1,4 +1,44 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:v="clr-namespace:System;assembly=netstandard">
     <v:String x:Key="settings">Settings</v:String>
+    <v:String x:Key="Notes">Notes</v:String>
+    <v:String x:Key="Reminders">Reminders</v:String>
+    <v:String x:Key="Archive">Archive</v:String>
+    <v:String x:Key="Trash">Trash</v:String>
+    <v:String x:Key="AddTag">Add tag</v:String>
+    <v:String x:Key="LoadNotes">Load notes</v:String>
+    <v:String x:Key="SaveNotes">Save notes</v:String>
+
+    <v:String x:Key="textLoadNotes">When recording a Download entry, all your unsaved notes will be lost, and notes that are already online will be loaded. If you want to cancel this mechanism, click Cancel.</v:String>
+    <v:String x:Key="textSaveNotes">When you click the save button, all your notes are updated on the network, and the next time you download the notes, they will be new. If you want to cancel the action, click on the Cancel button</v:String>
+    <v:String x:Key="cancel">Cancel</v:String>
+    <v:String x:Key="save">Save</v:String>
+    <v:String x:Key="load">Load</v:String>
+
+    <v:String x:Key="search">Search notes here</v:String>
+    <v:String x:Key="title">Enter title...</v:String>
+    <v:String x:Key="noteText">Notes text...</v:String>
+    <v:String x:Key="notTags">Not tags</v:String>
+    <v:String x:Key="Tags">Tags: </v:String>
+
+    <v:String x:Key="newUsername">New username</v:String>
+    <v:String x:Key="newPassword">New password</v:String>
+    <v:String x:Key="theme">Theme</v:String>
+    <v:String x:Key="language">Language</v:String>
+    <v:String x:Key="english">English</v:String>
+    <v:String x:Key="ukrainian">Ukrainian</v:String>
+
+    <v:String x:Key="light">Light</v:String>
+    <v:String x:Key="dark">Dark</v:String>
+    <v:String x:Key="tagName">Enter tag name...</v:String>
+    <v:String x:Key="Add">Add</v:String>
+    <v:String x:Key="accounts">Accounts</v:String>
+    <v:String x:Key="addAccount">Add account</v:String>
+    <v:String x:Key="exitAccount">Exit account</v:String>
+
+
+    <v:String x:Key="username">Username</v:String>
+    <v:String x:Key="password">Password</v:String>
+    <v:String x:Key="register">Register</v:String>
+    <v:String x:Key="login">Login</v:String>
 </ResourceDictionary>

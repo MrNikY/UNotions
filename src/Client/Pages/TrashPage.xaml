@@ -7,8 +7,23 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TrashPage">
+    <Grid Margin="0,15,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Opacity="0.8" Foreground="{DynamicResource TextColor}" TextChanged="SearchTextBox_TextChanged" Tag="{DynamicResource search}"  x:Name="SearchTextBox" Margin="10,0,0,0" Height="30" Padding="5" BorderThickness="1" BorderBrush="#FFC507"  Background="#F5F5F5" FontSize="16" FontWeight="Normal" SelectionBrush="Gray"  SelectionTextBrush="White" HorizontalAlignment="Left" VerticalAlignment="Center" Width="565"></TextBox>
+                <Border  MouseLeftButtonDown="searchNotes_Click" Style="{StaticResource borderMenuStyle}" CornerRadius="15" Margin="10,0,0,0" Width="40">
+                    <Image Width="30" HorizontalAlignment="Center" Height="30" Source="/Images/search.png"></Image>
+                </Border>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Row="1">
+            <ListBox Margin="40,0,40,0" HorizontalContentAlignment="Stretch" VirtualizingPanel.ScrollUnit="Pixel" BorderBrush="Transparent" Style="{StaticResource notesListBox}" Background="{DynamicResource TwoColor}" Grid.Row="1" x:Name="notesListBox">
 
-    <Grid>
-        <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="TrashPage" FontSize="48"></Label>
+            </ListBox>
+        </Grid>
     </Grid>
 </Page>

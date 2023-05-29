@@ -34,6 +34,8 @@ namespace UNotions.Styles
                 ListTags.Items.Add(model.Tags[i] + " |");
             }
             ListTags.Items.Add(model.Tags[model.Tags.Count - 1]);
+
+          //если будет тип то убрать если тип архив то убрать кнопку архива для елемента и тд.
         }
 
         private void editButton_Click(object sender, MouseButtonEventArgs e)
@@ -49,7 +51,11 @@ namespace UNotions.Styles
         {
             MessageBox.Show("archive");
         }
-
+        private void completedButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("completed");
+            borderItem.Background = Brushes.GreenYellow;
+        }
         private void Border_MouseEnter(object sender, MouseEventArgs e)
         {
             ShowOpacity();

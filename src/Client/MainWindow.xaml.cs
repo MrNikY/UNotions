@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using UNotions.Pages;
+using UNotions.Styles;
 
 namespace UNotions
 {
@@ -13,12 +14,32 @@ namespace UNotions
         {
             InitializeComponent();
             framePage.Content = new NotesPage();
+
+            //Это AuthWindow
             //framePage.Visibility = Visibility.Collapsed;
             //menuGrid.Opacity = 0.5;
             //menuGrid.IsEnabled = false;
             //saveAndLoadGrid.IsEnabled = false;
             //saveAndLoadGrid.Opacity = 0.5;
+           
+
+            ListViewItem item1 = new ListViewItem();
+            item1.Content = "Job";
+            item1.Style = FindResource("tagsListItem") as Style;
+
+            ListViewItem item2 = new ListViewItem();
+            item2.Content = "Money";
+            item2.Style = FindResource("tagsListItem") as Style;
+
+            ListViewItem item3 = new ListViewItem();
+            item3.Content = "Healing";
+            item3.Style = FindResource("tagsListItem") as Style;
+            tagsListView.Items.Add(item1);
+            tagsListView.Items.Add(item2);
+            tagsListView.Items.Add(item3);
+
         }
+
         #region Auth
         private void RegisterAccount_Click(object sender, MouseButtonEventArgs e)
         {
@@ -29,7 +50,6 @@ namespace UNotions
 
         }
         #endregion
-
 
         #region Window buttons
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
@@ -87,6 +107,11 @@ namespace UNotions
         }
         #endregion
 
+        private void tagsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show(tagsListView.SelectedItem.ToString());
+        }
+
         #region Other funcs
         public async void SlowOpacity(Page page)
         {
@@ -117,7 +142,19 @@ namespace UNotions
         }
         #endregion
 
-        #region Synhronize
+        #region Synhronize and Tags
+        private void addTags_Click(object sender, MouseButtonEventArgs e)
+        {
+            borderAddTags.Visibility = Visibility.Visible;
+            framePage.Visibility = Visibility.Collapsed;
+            menuGrid.Opacity = 0.5;
+            menuGrid.IsEnabled = false;
+            saveAndLoadGrid.IsEnabled = false;
+            notificationBorderLoad.Visibility = Visibility.Collapsed;
+            notificationBorderSave.Visibility = Visibility.Collapsed;
+            saveAndLoadGrid.Opacity = 0.5;
+        }
+
         private async void loadNotes_Click(object sender, MouseButtonEventArgs e)
         {
             framePage.Visibility = Visibility.Collapsed;
@@ -146,17 +183,21 @@ namespace UNotions
         {
 
         }
+        private void addTagBorder_Click(object sender, MouseButtonEventArgs e)
+        {
+   
+        }
         private void notificationCancel_Click(object sender, MouseButtonEventArgs e)
         {
             framePage.Visibility = Visibility.Visible;
-            menuGrid.Opacity =1;
+            menuGrid.Opacity = 1;
             menuGrid.IsEnabled = true;
+            borderAddTags.Visibility = Visibility.Collapsed;
             notificationBorderLoad.Visibility = Visibility.Collapsed;
             notificationBorderSave.Visibility = Visibility.Collapsed;
             saveAndLoadGrid.Opacity = 1;
             saveAndLoadGrid.IsEnabled = true;
         }
         #endregion
-
     }
 }

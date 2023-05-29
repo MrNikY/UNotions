@@ -24,5 +24,17 @@ namespace UNotions.Pages
         {
             InitializeComponent();
         }
+
+
+        #region Search
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void searchNotes_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

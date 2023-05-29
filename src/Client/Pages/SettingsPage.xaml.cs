@@ -38,17 +38,8 @@ namespace UNotions.Pages
             
         }
         #endregion
-
-        #region Remember me
-        private void RememberMeCheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-        }
-        private void RememberMeCheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-        }
-        #endregion
-
-        #region Language and styles
+        
+        #region Language and styles and accounts
         private void languageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string str = languageComboBox.SelectedItem.ToString();
@@ -99,10 +90,18 @@ namespace UNotions.Pages
             }
 
         }
-        #endregion
+        private void accounts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+            #endregion
 
         #region Other buttuns
         private void ExitInAccount_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void AddAccount_Click(object sender, MouseButtonEventArgs e)
         {
 
         }
@@ -111,7 +110,6 @@ namespace UNotions.Pages
         #region Loading
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
             if (File.Exists(Directory.GetCurrentDirectory() + "/ThemeSettings.txt"))
             {
                 string str = File.ReadAllText(Directory.GetCurrentDirectory() + "/ThemeSettings.txt").Replace("\r\n", "");
@@ -138,29 +136,6 @@ namespace UNotions.Pages
             }
             languageComboBox.SelectionChanged += languageComboBox_SelectionChanged;
             themeComboBox.SelectionChanged += themeComboBox_SelectionChanged;
-
-            string fileName = "LogFile.txt";
-            if (File.Exists(fileName))
-            {
-                using (FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite))
-                {
-                    string rememberMe = string.Empty;
-                    byte[] buffer = new byte[1024];
-                    int bytesRead = 0;
-                    while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) > 0)
-                    {
-                        rememberMe = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                    }
-                    if (rememberMe.Contains("Remember"))
-                    {
-                        RememberMeCheckBox.IsChecked = true;
-                    }
-                    else
-                    {
-                        RememberMeCheckBox.IsChecked = false;
-                    }
-                }
-            }
         }
         #endregion
     }

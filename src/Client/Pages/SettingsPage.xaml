@@ -8,11 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SettingsPage" Loaded="Page_Loaded">
 
-    <Grid Background="WhiteSmoke">
+    <Grid Background="{DynamicResource TwoColor}">
 
-        <Border Background="{DynamicResource PrimaryBackgroundColor}" CornerRadius="45" Width="450" Height="450">
+        <Border Background="{DynamicResource OneColor}" CornerRadius="45" Width="450" Height="425">
             <Grid >
-                <Label Height="35" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 3 0 0"  Content="{DynamicResource settings}"/>
+                <Label Foreground="{DynamicResource TextColor}" Height="35" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 3 0 0"  Content="{DynamicResource settings}"/>
                 <Grid Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="35"></RowDefinition>
@@ -20,12 +20,12 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="70"/>
-                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="80"/>
                         <RowDefinition Height="50"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBox Grid.Row="1" x:Name="UsernameTextBox" IsReadOnly="True" Tag="New username"  FontSize="18" Width="300" Height="35" Margin="0 0 50 0"></TextBox>
-                    <TextBox Grid.Row="2" x:Name="PasswordTextBox" IsReadOnly="True" Tag="New password"  FontSize="18" Width="300" Height="35" Margin="0 0 50 0"></TextBox>
+                    <TextBox Foreground="{DynamicResource TextColor}" Grid.Row="1" x:Name="UsernameTextBox" IsReadOnly="True" Tag="{DynamicResource newUsername}"  FontSize="18" Width="300" Height="35" Margin="0 0 50 0"></TextBox>
+                    <TextBox Foreground="{DynamicResource TextColor}" Grid.Row="2" x:Name="PasswordTextBox" IsReadOnly="True" Tag="{DynamicResource newPassword}"  FontSize="18" Width="300" Height="35" Margin="0 0 50 0"></TextBox>
                     <Border Grid.Row="1" HorizontalAlignment="Right" Margin="0 0 45 0" Width="35" Height="35" MouseLeftButtonDown="RenameLogin_Click" CornerRadius="50" Style="{StaticResource borderMenuStyle}" BorderBrush="#FFC507" BorderThickness="2" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
                         <Image Margin="1" Source="..\Images\pen.png"></Image>
                     </Border>
@@ -35,33 +35,49 @@
                     
                     
                     <StackPanel Margin="50 0 40 0" Grid.Row="3" Orientation="Vertical">
-                        <Label FontSize="16" Content="Theme"/>
-                        <ComboBox SelectionChanged="themeComboBox_SelectionChanged" Style="{StaticResource ComboBoxFlatStyle}" x:Name="themeComboBox" Height="35"  FontSize="18"  VerticalAlignment="Top">
-                            <ComboBoxItem Style="{DynamicResource settingsItem}" Content="Light">
+                        <Label Foreground="{DynamicResource TextColor}" FontSize="16" Content="{DynamicResource theme}"/>
+                        <ComboBox Foreground="{DynamicResource TextColor}" SelectionChanged="themeComboBox_SelectionChanged" Style="{StaticResource ComboBoxFlatStyle}" x:Name="themeComboBox" Height="35"  FontSize="18"  VerticalAlignment="Top">
+                            <ComboBoxItem Style="{DynamicResource settingsItem}" Content="{DynamicResource light}">
 
                             </ComboBoxItem>
-                            <ComboBoxItem  Style="{DynamicResource settingsItem}"  Content="Dark">
-
-                            </ComboBoxItem>
-                        </ComboBox>
-                    </StackPanel>
-
-                    <StackPanel Margin="50 0 40 0" Grid.Row="4" Orientation="Vertical">
-                        <Label FontSize="16" Content="Language" Grid.RowSpan="2"/>
-                        <ComboBox  SelectionChanged="languageComboBox_SelectionChanged" Style="{StaticResource ComboBoxFlatStyle}" x:Name="languageComboBox" Height="35" FontSize="18"  VerticalAlignment="Top">
-                            <ComboBoxItem  Style="{DynamicResource settingsItem}"  Content="English">
-
-                            </ComboBoxItem>
-                            <ComboBoxItem  Style="{DynamicResource settingsItem}"  Content="Ukrainian">
+                            <ComboBoxItem  Style="{DynamicResource settingsItem}"  Content="{DynamicResource dark}">
 
                             </ComboBoxItem>
                         </ComboBox>
                     </StackPanel>
 
-                    <CheckBox Margin="50 15 0 0" Grid.Row="5" x:Name="RememberMeCheckBox"  Content="Remember me" FontSize="14" Unchecked="RememberMeCheckBox_Unchecked" Checked="RememberMeCheckBox_Checked"></CheckBox>
-                    <Border Grid.Row="6" Style="{StaticResource borderMenuStyle}" Width="135" MouseLeftButtonDown="ExitInAccount_Click"  Height="40" CornerRadius="15" HorizontalAlignment="Center">
-                        <Label   FontSize="16" Content="Exit account" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"></Label>
-                    </Border>
+                    <StackPanel  Margin="50 0 40 0" Grid.Row="4" Orientation="Vertical">
+                        <Label Foreground="{DynamicResource TextColor}" FontSize="16" Content="{DynamicResource language}" Grid.RowSpan="2"/>
+                        <ComboBox Foreground="{DynamicResource TextColor}"  SelectionChanged="languageComboBox_SelectionChanged" Style="{StaticResource ComboBoxFlatStyle}" x:Name="languageComboBox" Height="35" FontSize="18"  VerticalAlignment="Top">
+                            <ComboBoxItem  Style="{DynamicResource settingsItem}"  Content="{DynamicResource english}">
+
+                            </ComboBoxItem>
+                            <ComboBoxItem  Style="{DynamicResource settingsItem}"  Content="{DynamicResource ukrainian}">
+
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="6">
+                        <Border Margin="10,0,10,0" Grid.Row="6" Style="{StaticResource borderMenuStyle}" Width="135" MouseLeftButtonDown="AddAccount_Click"  Height="40" CornerRadius="15" HorizontalAlignment="Center">
+                            <Label Foreground="{DynamicResource TextColor}"   FontSize="16" Content="{DynamicResource addAccount}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"></Label>
+                        </Border>
+                        <Border  Margin="10,0,10,0"  Grid.Row="6" Style="{StaticResource borderMenuStyle}" Width="135" MouseLeftButtonDown="ExitInAccount_Click"  Height="40" CornerRadius="15" HorizontalAlignment="Center">
+                            <Label Foreground="{DynamicResource TextColor}"  FontSize="16" Content="{DynamicResource exitAccount}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"></Label>
+                        </Border>
+                    </StackPanel>
+                    
+                    <StackPanel Margin="50 0 40 0" Grid.Row="5" Orientation="Vertical">
+                        <Label Foreground="{DynamicResource TextColor}" FontSize="16" Content="{DynamicResource accounts}"/>
+                        <ComboBox Foreground="{DynamicResource TextColor}" SelectedIndex="0" SelectionChanged="accounts_SelectionChanged" Style="{StaticResource ComboBoxFlatStyle}" x:Name="accountsComboBox" Height="35"  FontSize="18"  VerticalAlignment="Top">
+                            <ComboBoxItem Style="{DynamicResource settingsItem}" Content="UserOne">
+
+                            </ComboBoxItem>
+                            <ComboBoxItem  Style="{DynamicResource settingsItem}"  Content="UserTwo">
+
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
                 </Grid>
                
             </Grid>

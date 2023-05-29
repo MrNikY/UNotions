@@ -15,11 +15,13 @@
     <None Remove="Images\icon.png" />
     <None Remove="Images\load.png" />
     <None Remove="Images\notes.png" />
+    <None Remove="Images\ok.png" />
     <None Remove="Images\pen.png" />
     <None Remove="Images\reminders.png" />
     <None Remove="Images\save.png" />
     <None Remove="Images\search.png" />
     <None Remove="Images\settings.png" />
+    <None Remove="Images\tag.png" />
     <None Remove="Images\trash.png" />
   </ItemGroup>
 
@@ -48,6 +50,9 @@
     <Content Include="Images\notes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\ok.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\pen.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -61,6 +66,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\tag.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\trash.png">

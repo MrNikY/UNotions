@@ -1,4 +1,43 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:v="clr-namespace:System;assembly=netstandard">
     <v:String x:Key="settings">Налаштування</v:String>
+    <v:String x:Key="Notes">Нотатки</v:String>
+    <v:String x:Key="Reminders">Напоминання</v:String>
+    <v:String x:Key="Archive">Архів</v:String>
+    <v:String x:Key="Trash">Корзина</v:String>
+    <v:String x:Key="AddTag">Добавити тег</v:String>
+    <v:String x:Key="LoadNotes">Завантажити нотатки</v:String>
+    <v:String x:Key="SaveNotes">Зберегти нотатки</v:String>
+
+    <v:String x:Key="textLoadNotes">When recording a Download entry, all your unsaved notes will be lost, and notes that are already online will be loaded. If you want to cancel this mechanism, click Cancel.</v:String>
+    <v:String x:Key="textSaveNotes">When you click the save button, all your notes are updated on the network, and the next time you download the notes, they will be new. If you want to cancel the action, click on the Cancel button</v:String>
+    <v:String x:Key="cancel">Закрити</v:String>
+    <v:String x:Key="save">Зберегти</v:String>
+    <v:String x:Key="load">Завантажити</v:String>
+
+    <v:String x:Key="search">Шукайте нотатки тут</v:String>
+    <v:String x:Key="title">Введіть титульну назву...</v:String>
+    <v:String x:Key="noteText">Введіть текст нотатки...</v:String>
+    <v:String x:Key="notTags">Тегів немає</v:String>
+    <v:String x:Key="Tags">Теги: </v:String>
+
+    <v:String x:Key="newUsername">Новий логін</v:String>
+    <v:String x:Key="newPassword">Новий пароль</v:String>
+    <v:String x:Key="theme">Тема</v:String>
+    <v:String x:Key="language">Мова</v:String>
+    <v:String x:Key="english">Англійська</v:String>
+    <v:String x:Key="ukrainian">Українська</v:String>
+
+    <v:String x:Key="accounts">Аккаунти</v:String>
+    <v:String x:Key="addAccount">Додати аккаунт</v:String>
+    <v:String x:Key="exitAccount">Вийти з аккаунту</v:String>
+
+    <v:String x:Key="light">Світла</v:String>
+    <v:String x:Key="dark">Темна</v:String>
+    <v:String x:Key="Add">Добавити</v:String>
+    <v:String x:Key="tagName">Введіть ім'я тега</v:String>
+    <v:String x:Key="username">Логін</v:String>
+    <v:String x:Key="password">Пароль</v:String>
+    <v:String x:Key="register">Зареєструватися</v:String>
+    <v:String x:Key="login">Ввійти</v:String>
 </ResourceDictionary>

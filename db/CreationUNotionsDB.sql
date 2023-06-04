@@ -20,9 +20,9 @@ go
 create table [Users](
 	[Id] int not null identity(1,1),
 	[Username] varchar(30) unique not null,
-	[Password] varchar(128) not null,
+	[Password] varchar(64) not null,
 	[Email] varchar(256) not null,
-	[Nickname] nvarchar(128) not null,
+	[Nickname] nvarchar(100) not null,
 	[RegistrationDate] datetime not null,
 
 	constraint PK_Users_Id primary key([Id]),

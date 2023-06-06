@@ -38,7 +38,7 @@ create table [Notes](
 	[Title] nvarchar(100) not null,
 	[Content] nvarchar(max) not null,
 
-	-- 0 = Active; 1 = Archive; 2 = Recycle Bin;
+	-- 0 = Active; 1 = Archive; 2 = RecycleBin;
 	[Status] smallint null,
 
 	[MediaContent] varchar(2048) null,

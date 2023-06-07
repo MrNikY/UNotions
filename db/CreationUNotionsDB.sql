@@ -20,9 +20,9 @@ go
 create table [Users](
 	[Id] int not null identity(1,1),
 	[Username] varchar(30) unique not null,
-	[Password] varchar(128) not null,
+	[Password] varchar(64) not null,
 	[Email] varchar(256) not null,
-	[Nickname] nvarchar(128) not null,
+	[Nickname] nvarchar(100) not null,
 	[RegistrationDate] datetime not null,
 
 	constraint PK_Users_Id primary key([Id]),
@@ -38,10 +38,11 @@ create table [Notes](
 	[Title] nvarchar(100) not null,
 	[Content] nvarchar(max) not null,
 
-	-- 0 = Active; 1 = Archive; 2 = Recycle Bin;
+	-- 0 = Active; 1 = Archive; 2 = RecycleBin;
 	[Status] smallint null,
 
 	[MediaContent] varchar(2048) null,
+	[ReminderDate] datetime not null,
 	[CreationDate] datetime not null,
 	[EditedDate] datetime null,
 	[DeletionDate] datetime null,
@@ -103,41 +104,3 @@ create table [NotesLabels](
 	on delete cascade
 	on update cascade
 );
-
-
-begin
-    declare @jobId uniqueidentifier;
-    exec msdb.dbo.sp_add_job
-        @job_name = 'DeleteFromRecycleBin',
-        @enabled = 1,
-        @description = 'Notesthat are in the basket for more than seven days will be deleted.',
-        @job_id = @jobId output;
-        
-    EXEC msdb.dbo.sp_add_jobstep
-        @job_id = @jobId,
-        @step_name = 'DeleteFromRecycleBin',
-        @subsystem = 'TSQL',
-        @command = '
-            delete from [Notes]
-            where [Status] = 2 and [DeletionDate] < DateAdd(day, -7, GetDate());
-        ';
-        
-    EXEC msdb.dbo.sp_add_schedule
-        @schedule_name = 'CheckEveryHour',
-        @freq_type = 4,
-        @freq_interval = 1,
-        @active_start_time = 000000,
-		@active_end_time = 235959,
-        @schedule_id = 1;
-        
-    EXEC msdb.dbo.sp_attach_schedule
-        @job_id = @jobId,
-        @schedule_id = 1;
-        
-    EXEC msdb.dbo.sp_add_jobserver
-        @job_id = @jobId,
-        @server_name = '(local)';
-        
-    PRINT 'A job has been created to delete notes from the Recycle Bin.';
-end
-go

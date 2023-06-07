@@ -42,6 +42,7 @@ create table [Notes](
 	[Status] smallint null,
 
 	[MediaContent] varchar(2048) null,
+	[ReminderDate] datetime not null,
 	[CreationDate] datetime not null,
 	[EditedDate] datetime null,
 	[DeletionDate] datetime null,

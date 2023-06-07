@@ -115,13 +115,14 @@ namespace UNotions_Lib.DB
 
 
 		#region Editing Data (Notes)
-		public async Task<Note?> AddNote(string title, string content, Status status, string mediaContent, DateTime creationDate, DateTime editedDate, DateTime deletionDate, int userId)
+		public async Task<Note?> AddNote(string title, string content, Status status, string mediaContent, DateTime reminderDate, DateTime creationDate, DateTime editedDate, DateTime deletionDate, int userId)
 		{
 			Note note = new()
 			{
 				Title = title,
 				Content = content,
 				Status = status,
+				ReminderDate = reminderDate,
 				MediaContent = mediaContent,
 				CreationDate = creationDate,
 				EditedDate = editedDate,
@@ -134,6 +135,7 @@ namespace UNotions_Lib.DB
 				note.Title,
 				note.Content,
 				note.Status,
+				note.ReminderDate,
 				note.MediaContent,
 				note.CreationDate, 
 				note.EditedDate,
@@ -157,6 +159,7 @@ namespace UNotions_Lib.DB
 				note.Title,
 				note.Content,
 				note.Status,
+				note.ReminderDate,
 				note.MediaContent,
 				note.CreationDate,
 				note.EditedDate,

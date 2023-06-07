@@ -8,6 +8,7 @@ create procedure [dbo].[ManageNote]
 	@Content nvarchar(max) = null,
 	@Status smallint = null,
 	@MediaContent varchar(2048) = null,
+	@ReminderDate datetime = null,
 	@CreationDate datetime = null,
 	@EditedDate datetime = null,
 	@DeletionDate datetime = null,
@@ -20,7 +21,8 @@ begin
 			[Notes] ([Title],
 					 [Content], 
 					 [Status], 
-					 [MediaContent], 
+					 [MediaContent],
+					 [ReminderDate],
 					 [CreationDate],
 					 [EditedDate],
 					 [DeletionDate])
@@ -29,6 +31,7 @@ begin
 					@Content, 
 					@Status, 
 					@MediaContent,
+					@ReminderDate,
 					@CreationDate,
 					@EditedDate,
 					@DeletionDate);
@@ -52,7 +55,8 @@ begin
 			set [Title] = @Title,
 				[Content] = @Content, 
 				[Status] = @Status, 
-				[MediaContent] = @MediaContent, 
+				[MediaContent] = @MediaContent,
+				[ReminderDate] = @ReminderDate,
 				[CreationDate] = @CreationDate,
 				[EditedDate] = @EditedDate,
 				[DeletionDate] = @DeletionDate

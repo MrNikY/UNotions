@@ -17,6 +17,7 @@ namespace UNotions_Lib.Models
 		private string? _content;
 		private string? _mediaContent;
 		private Status _status;
+		private DateTime _reminderDate;
 		private DateTime _creationDate;
 		private DateTime _editedDate;
 		private DateTime _deletionDate;
@@ -51,6 +52,12 @@ namespace UNotions_Lib.Models
 		{
 			get { return _status; }
 			set { SetProperty(ref _status, value, nameof(Status)); }
+		}
+
+		public DateTime ReminderDate
+		{
+			get { return _reminderDate; }
+			set { SetProperty(ref _reminderDate, value, nameof(ReminderDate)); }
 		}
 
 		public DateTime CreationDate
